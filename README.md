@@ -25,17 +25,20 @@ Durante la limpieza de datos, se aplicaron técnicas estadísticas (Rango Interc
 ---
 
 ## 📂 Estructura del Proyecto
+```text
 .
-├── assets/             # Logos e imágenes de la app
-├── data/               # Datasets (.csv) crudos y limpios
-├── notebooks/          # Análisis Exploratorio (EDA.ipynb)
-├── src/                # Scripts de Python adicionales
-├── requirements.txt    # Librerías necesarias
-└── README.md           # Este archivo
+├── assets/             # Gráficos e imágenes exportadas (.png)
+├── data/               # Datasets originales (Ignorado en GitHub por tamaño)
+├── src/                # Scripts principales de Python
+├── .gitignore          # Reglas de exclusión para Git y entornos virtuales
+├── EDA.ipynb           # Análisis exploratorio y limpieza de datos
+├── requirements.txt    # Librerías y dependencias del proyecto
+└── README.md           # Este archivo de documentación
+```
 
 - **src/app.py** → Archivo principal de la aplicación en Streamlit.  
 - **data/vehicles_us.csv** → Conjunto de datos usado para el análisis.  
-- **notebooks/notebooks/EDA.ipynb** → Análisis exploratorio inicial de los datos.  
+- **EDA.ipynb** → Análisis exploratorio inicial de los datos.  
 - **requirements.txt** → Librerías necesarias para ejecutar el proyecto.  
 - **README.md** → Este archivo.
 
@@ -66,6 +69,8 @@ Durante la limpieza de datos, se aplicaron técnicas estadísticas (Rango Interc
 
 La aplicación se abrirá automáticamente en tu navegador en la dirección:
 👉 http://localhost:8501
+
+---
 
 ## 📊 Qué puedes hacer en la app
 
@@ -113,5 +118,7 @@ Scikit-learn
 
 Este proyecto fue desarrollado con el objetivo de practicar análisis de datos y visualización interactiva.
 La idea es facilitar la exploración del mercado de vehículos de una forma intuitiva y visual.
+
+---
 
 💬 Desarrollado por Inti — Exploración y análisis del mercado automotriz 🚗📊
