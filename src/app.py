@@ -1,5 +1,5 @@
 # ============================================
-# 🚗 Vehicle Market Analysis Dashboard
+# 🚗📊 Exploración y Análisis del Mercado Automotriz
 # ============================================
 
 import streamlit as st
@@ -100,6 +100,36 @@ col2.metric("Precio promedio", f"${filtered_df['price'].mean():,.0f}")
 col3.metric("Año promedio", int(filtered_df["model_year"].mean()))
 col4.metric("Km promedio", f"{filtered_df['odometer'].mean():,.0f}")
 
+# ==============================
+# PREPARACIÓN DE DATOS PARA VISUALIZACIÓN
+# ==============================
+
+# Creamos una copia para no afectar los filtros originales
+df_visualizacion = filtered_df.copy()
+
+# Usamos fillna(0) por si quedó algún nulo perdido y luego mapeamos
+df_visualizacion["is_4wd"] = df_visualizacion["is_4wd"].map(
+    {1.0: "Sí", 0.0: "No", 1: "Sí", 0: "No"})
+
+# Crea un diccionario de mapeo
+columnas_espanol = {
+    "price": "Precio",
+    "model_year": "Año del Modelo",
+    "model": "Modelo",
+    "condition": "Condición",
+    "cylinders": "Cilindros",
+    "fuel": "Combustible",
+    "odometer": "Kilometraje (millas)",
+    "transmission": "Transmisión",
+    "type": "Tipo",
+    "paint_color": "Color",
+    "is_4wd": "¿Es 4x4?",
+    "date_posted": "Fecha de Publicación",
+    "days_listed": "Días en Venta"
+}
+
+# Aplicamos el renombramiento al filtered_df antes de mostrarlo
+df_visualizacion = df_visualizacion.rename(columns=columnas_espanol)
 
 # ==============================
 # TABLA INTERACTIVA COMPLETA
@@ -112,7 +142,10 @@ Usa los filtros en la barra lateral para actualizar la tabla en tiempo real.
 
 # Mostramos toda la tabla con scroll
 st.dataframe(
-    filtered_df,
+    df_visualizacion,
+    column_config={
+        "Precio": st.column_config.NumberColumn(format="$%d"),
+    },
     use_container_width=True,
     height=400
 )
