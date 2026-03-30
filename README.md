@@ -1,9 +1,26 @@
 # 🚗 Vehicle Market Analysis Dashboard
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Manipulation-green)
+![Plotly](https://img.shields.io/badge/Plotly-Data_Visualization-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web_App-red)
+
+## 📌 Descripción del Proyecto
 Este proyecto es una aplicación web interactiva hecha con **Streamlit** para analizar datos del mercado de vehículos en Estados Unidos.  
 Permite explorar, visualizar y hacer predicciones de precios usando diferentes filtros y gráficos de manera sencilla.
 
 **Enlace a la pagína web** 👉 https://vehicles-app-9tty.onrender.com
+
+## 📊 Hallazgos Clave (Visualizaciones)
+Durante la limpieza de datos, se aplicaron técnicas estadísticas (Rango Intercuartílico - IQR) para filtrar valores atípicos (como autos de $375,000 USD o edades negativas), logrando un dataset representativo del mercado real.
+
+### 1. Distribución de Precios
+*Aquí podemos observar dónde se concentra el mercado real después de limpiar el ruido estadístico.*
+![Distribución de Precios](assets/distribucion_precios.png)
+
+### 2. Precio vs. Kilometraje
+*Análisis de correlación: cómo la depreciación impacta el valor del vehículo según su uso.*
+![Precio vs Kilometraje](assets/price_vs_odometer.png)
 
 ---
 
@@ -26,12 +43,23 @@ Permite explorar, visualizar y hacer predicciones de precios usando diferentes f
 
 ## 🚀 Cómo ejecutar la aplicación
 
-1. Clona el repositorio o descarga los archivos.
-2. Instala las dependencias necesarias:
+1. Clona el repositorio o descarga los archivos:
+   ```bash
+   git clone https://github.com/inbemero-tech/vehicles-analysis.git
+
+2. Crea y activa un entorno virtual:
+   ```bash
+   python -m venv .venv
+   # En Windows:
+   .venv\Scripts\activate
+   # En Mac/Linux:
+   source .venv/bin/activate
+
+3. Instala las dependencias necesarias:
    ```bash
    pip install -r requirements.txt
 
-3. Ejecuta la aplicación en tu navegador:
+4. Ejecuta la aplicación en tu navegador:
     ```bash
     streamlit run app.py
 
